@@ -1,0 +1,41 @@
+<%# <h1>Restaurants</h1>
+<%= link_to '+ New', new_restaurant_path, class: 'btn btn-dark' %>
+<%# <hr> %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Address</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col">Category</th>
+      <th scope="col" colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @restaurants.each do |restaurant| %>
+      <tr>
+        <td><%= restaurant.name %></td>
+        <td><%= restaurant.address %></td>
+        <td><%= restaurant.phone_number %></td>
+        <td><%= restaurant.category %></td>
+        <td>
+          <%= link_to restaurant do %>
+            <i class="far fa-eye"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_restaurant_path(restaurant) do %>
+            <i class="fas fa-pencil-alt"></i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to restaurant, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -20,9 +20,15 @@
   <%= @restaurant.category %>
 </p>
 
-<%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary mb-2' %>
+<%# <%= link_to "Add Review", new_restaurant_review_path(@restaurant), class: 'btn btn-primary mb-2' %>
 <hr>
-<h4>Reviews</h4>
+
+<h5>Leave a review</h5>
+<%= render 'reviews/form', reivew: @review %>
+
+<hr>
+
+<h5>Reviews</h5>
 
 <ul class="list-group mt-2">
   <% @restaurant.reviews.each do |review| %>

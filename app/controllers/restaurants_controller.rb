@@ -33,6 +33,11 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    @restaurant.destroy
+    redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.'
+  end
+
   private
 
   def set_restaurant
